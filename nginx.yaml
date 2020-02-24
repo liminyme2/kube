@@ -7,12 +7,3 @@ spec:
   - name: mybench-container
     image: mytutorials/centos:bench
     imagePullPolicy: IfNotPresent
-
-    command: ['sh', '-c', 'echo The Bench Pod is Running ; sleep 3600']
-    resources:
-      limits:
-        memory: "100Mi"
-      requests:
-        memory: "50Mi"
-
-  restartPolicy: Never
