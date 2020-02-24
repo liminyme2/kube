@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx
-  labels:
-    env: test
+  name: mybench-pod
 spec:
   containers:
-  - name: nginx
-    image: nginx
+  - name: mybench-container
+    image: mytutorials/centos:bench
     imagePullPolicy: IfNotPresent
+
+    command: ['sh', '-c', 'echo The Bench Pod is Running ; sleep 3600']
     resources:
       limits:
         memory: "100Mi"
@@ -16,5 +16,3 @@ spec:
         memory: "50Mi"
 
   restartPolicy: Never
-  nodeSelector:
-    disktype: ssd
