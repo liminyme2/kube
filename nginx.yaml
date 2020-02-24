@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    env: test
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent
+    resources:
+      limits:
+        memory: "100Mi"
+      requests:
+        memory: "50Mi"
+
+  restartPolicy: Never
+  nodeSelector:
+    disktype: ssd
